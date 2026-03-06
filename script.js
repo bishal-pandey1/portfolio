@@ -127,6 +127,7 @@ if (contactForm) {
       body: JSON.stringify({
         name,
         email,
+        _replyto: email,
         _subject: `[Portfolio Contact] ${subject}`,
         message,
       }),
