@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bishal Pandey — CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #ffffff;
+      --text: #d0d0d0;
+      --cream: #0a0a0a;
+      --paper: #111111;
+      --accent: #29e551;
+      --accent-strong: #09d863;
+      --line: #1e1e1e;
+      --glow: 0 0 12px rgba(0, 119, 182, 0.35);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Manrope", sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at 5% 10%, #001a2e 0%, transparent 45%),
+                  radial-gradient(circle at 85% 15%, #00112a 0%, transparent 35%),
+                  var(--cream);
+      line-height: 1.65;
+      padding: 2rem 1rem 4rem;
+    }
+
+    .cv-container {
+      max-width: 860px;
+      margin: 0 auto;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 3rem 3.5rem;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Header */
+    .cv-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .cv-header h1 {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 3rem;
+      color: var(--ink);
+      letter-spacing: 2px;
+      margin-bottom: 0.3rem;
+    }
+
+    .cv-header h1 span {
+      color: var(--accent);
+    }
+
+    .cv-header .subtitle {
+      font-size: 1.1rem;
+      color: var(--accent-strong);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 1rem;
+    }
+
+    .cv-header .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem 1.8rem;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .cv-header .contact-info span::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      vertical-align: middle;
+    }
+
+    /* Section */
+    .cv-section {
+      margin-bottom: 2.2rem;
+    }
+
+    .cv-section h2 {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 1.5rem;
+      color: var(--accent);
+      letter-spacing: 2px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .cv-section p,
+    .cv-section li {
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .cv-section ul {
+      list-style: none;
+      padding-left: 1.2rem;
+    }
+
+    .cv-section ul li {
+      position: relative;
+      padding-left: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .cv-section ul li::before {
+      content: "▸";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+    }
+
+    /* Experience / Education blocks */
+    .entry {
+      margin-bottom: 1.4rem;
+    }
+
+    .entry h3 {
+      color: var(--ink);
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.15rem;
+    }
+
+    .entry .meta {
+      font-size: 0.85rem;
+      color: var(--accent-strong);
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    /* Projects */
+    .project-item {
+      margin-bottom: 0.8rem;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .project-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55rem;
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .project-item strong {
+      color: var(--ink);
+    }
+
+    /* Skills grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem 2rem;
+    }
+
+    .software-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.5rem;
+    }
+
+    .software-grid .tag {
+      background: rgba(0, 119, 182, 0.1);
+      border: 1px solid rgba(0, 119, 182, 0.25);
+      border-radius: 8px;
+      padding: 0.35rem 0.8rem;
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-align: center;
+      font-weight: 600;
+    }
+
+    /* Languages */
+    .lang-list {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .lang-item {
+      background: rgba(0, 119, 182, 0.08);
+      border: 1px solid rgba(0, 119, 182, 0.2);
+      border-radius: 10px;
+      padding: 0.5rem 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .lang-item strong {
+      color: var(--ink);
+    }
+
+    .lang-item span {
+      color: var(--accent-strong);
+      font-size: 0.8rem;
+    }
+
+    /* Footer */
+    .cv-footer {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    /* Responsive */
+    @media (max-width: 650px) {
+      .cv-container { padding: 2rem 1.5rem; }
+      .cv-header h1 { font-size: 2.2rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .software-grid { grid-template-columns: 1fr 1fr; }
+      .cv-header .contact-info { flex-direction: column; align-items: center; }
+    }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .cv-container {
+        background: #fff;
+        border: none;
+        box-shadow: none;
+        padding: 1.5rem;
+      }
+      :root {
+        --ink: #111;
+        --text: #333;
+        --accent: #005f8a;
+        --accent-strong: #005f8a;
+        --line: #ccc;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cv-container">
+
+  <!-- Header -->
+  <header class="cv-header">
+    <h1>Bishal <span>Pandey</span></h1>
+    <p class="subtitle">Civil Sub-Engineer</p>
+    <div class="contact-info">
+      <span>bishalpandey0123@gmail.com</span>
+      <span>+977-9812963737</span>
+      <span>+977-9742335533</span>
+      <span>Bharatpur, Nepal</span>
+    </div>
+  </header>
+
+  <!-- Professional Summary -->
+  <section class="cv-section">
+    <h2>Professional Summary</h2>
+    <p>
+      Civil sub-engineer currently pursuing a Bachelor's degree in Civil Engineering.
+      Hands-on experience in structural design, estimation, surveying, and construction
+      supervision. Familiar with AutoCAD, SAP2000, ETABS, and MS Project. Committed to
+      safety, quality, and cost-effective engineering solutions.
+    </p>
+  </section>
+
+  <!-- Education -->
+  <section class="cv-section">
+    <h2>Education</h2>
+    <div class="entry">
+      <h3>Bachelor of Engineering in Civil Engineering</h3>
+      <p class="meta">Pokhara University, Oxford College of Science &amp; Engineering &mdash; Expected Graduation 2029</p>
+      <p>Currently pursuing</p>
+    </div>
+    <div class="entry">
+      <h3>Diploma in Civil Engineering (Sub-Engineer)</h3>
+      <p class="meta">CTEVT &mdash; Nepal</p>
+    </div>
+  </section>
+
+  <!-- Professional Registration -->
+  <section class="cv-section">
+    <h2>Professional Registration</h2>
+    <p>Nepal Engineering Council (NEC) &mdash; Sub-Engineer</p>
+  </section>
+
+  <!-- Work Experience -->
+  <section class="cv-section">
+    <h2>Work Experience</h2>
+    <div class="entry">
+      <h3>Civil Sub-Engineer</h3>
+      <p class="meta">ABC Construction Pvt. Ltd. &mdash; Kathmandu | Present</p>
+      <ul>
+        <li>Assist in structural design for residential projects</li>
+        <li>Prepare project estimation, BOQ, and cost analysis</li>
+        <li>Supervise construction sites ensuring quality standards</li>
+        <li>Coordinate with senior engineers and contractors</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <h3>Site Supervisor (Internship)</h3>
+      <p class="meta">XYZ Engineering Consultancy &mdash; Lalitpur</p>
+      <ul>
+        <li>Conducted land surveys using total station</li>
+        <li>Prepared AutoCAD drawings for building permits</li>
+        <li>Assisted in quantity estimation for tender submissions</li>
+        <li>Performed site inspection and quality assurance</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Key Skills -->
+  <section class="cv-section">
+    <h2>Key Skills</h2>
+    <div class="skills-grid">
+      <ul>
+        <li>Structural Analysis &amp; Design (RCC, Steel)</li>
+        <li>Earthquake-Resistant Design (NBC 105:2020)</li>
+        <li>Quantity Estimation &amp; Rate Analysis</li>
+        <li>Land Surveying &amp; Topographic Mapping</li>
+      </ul>
+      <ul>
+        <li>Construction Supervision &amp; Quality Control</li>
+        <li>Building Layout &amp; Architectural Planning</li>
+        <li>Water Supply &amp; Sanitation Design</li>
+        <li>Project Scheduling &amp; Management</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Software Proficiency -->
+  <section class="cv-section">
+    <h2>Software Proficiency</h2>
+    <div class="software-grid">
+      <div class="tag">AutoCAD 2D/3D</div>
+      <div class="tag">SAP2000 / ETABS</div>
+      <div class="tag">MS Project / Primavera</div>
+      <div class="tag">EPANET</div>
+      <div class="tag">Google Earth Pro / QGIS</div>
+      <div class="tag">Microsoft Office</div>
+    </div>
+  </section>
+
+  <!-- Notable Projects -->
+  <section class="cv-section">
+    <h2>Notable Projects</h2>
+    <div class="project-item">
+      <strong>4-Story Residential Building &mdash; Lalitpur</strong><br />
+      Structural design, drawings, and site supervision
+    </div>
+    <div class="project-item">
+      <strong>Commercial Complex (6-Story) &mdash; Kathmandu</strong><br />
+      Complete estimation, BOQ, and cost management (NPR 85M)
+    </div>
+    <div class="project-item">
+      <strong>RCC T-Beam Bridge (30m span) &mdash; Rural Municipality</strong><br />
+      Structural analysis, detailing, and foundation design
+    </div>
+    <div class="project-item">
+      <strong>School Building Retrofit &mdash; Sindhupalchok</strong><br />
+      Vulnerability assessment and strengthening design
+    </div>
+    <div class="project-item">
+      <strong>Gravity-Fed Water Supply &mdash; Hillside Community</strong><br />
+      System design for 200 households with EPANET analysis
+    </div>
+  </section>
+
+  <!-- Languages -->
+  <section class="cv-section">
+    <h2>Languages</h2>
+    <div class="lang-list">
+      <div class="lang-item"><strong>Nepali</strong> <span>&mdash; Native</span></div>
+      <div class="lang-item"><strong>English</strong> <span>&mdash; Professional</span></div>
+      <div class="lang-item"><strong>Hindi</strong> <span>&mdash; Conversational</span></div>
+    </div>
+  </section>
+
+  <!-- References -->
+  <section class="cv-section">
+    <h2>References</h2>
+    <p>Available upon request.</p>
+  </section>
+
+  <footer class="cv-footer">
+    Bishal Pandey &mdash; Civil Sub-Engineer &mdash; Bharatpur, Nepal
+  </footer>
+
+</div>
+
+</body>
+</html>
